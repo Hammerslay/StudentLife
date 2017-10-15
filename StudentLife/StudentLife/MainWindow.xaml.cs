@@ -24,5 +24,11 @@ namespace StudentLife
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Organization org = Data_Access_Layer.DataAccessLayer.GetOrganizationByName("Helsingkrona Nation");
+            orgName.Text = org.Name;
+        }
     }
 }

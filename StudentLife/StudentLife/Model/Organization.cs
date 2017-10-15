@@ -8,6 +8,20 @@ namespace StudentLife.Model
 {
     class Organization
     {
+        public Organization()
+        {
+
+        }
+        public Organization(string name, string adress, string phoneNumber, string email, string website, string orgDescription)
+        {
+            Name = name;
+            Adress = adress;
+            PhoneNumber = phoneNumber;
+            Email = email;
+            Website = website;
+            OrgDescription = orgDescription;
+        }
+
         private string name;
         private string adress;
         private string phoneNumber;
