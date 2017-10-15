@@ -10,9 +10,10 @@ namespace StudentLife.Exception_Handling
     {
         void HandleException (Exception ex)
         {
-            switch (ex.GetType())
+            switch (ex.InnerException)
             {
-
+                //TO DO: Do stuff depending on the error.
+                //Perhaps call a method for displaying an appropriate message?
             }
         }
     }

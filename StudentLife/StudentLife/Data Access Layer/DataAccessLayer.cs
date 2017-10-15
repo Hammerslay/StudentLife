@@ -38,9 +38,10 @@ namespace StudentLife.Data_Access_Layer
                     Console.ReadLine();
                 }
             }
-            catch
+            catch(Exception exception)
             {
-
+                //TO DO: Stuff to be handled
+                //Perhaps throw custom exceptions, then handle them with an error handler at top level?
             }
         }
     }
