@@ -8,5 +8,6 @@ namespace StudentLife.Model
 {
     class Organization
     {
+        //Test
     }
 }
