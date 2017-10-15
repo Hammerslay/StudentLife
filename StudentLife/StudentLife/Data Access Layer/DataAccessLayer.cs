@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SqlClient; //Provides data access specifically for Microsoft SQL Server.
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +14,7 @@ namespace StudentLife.Data_Access_Layer
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection("Server=localhost; Database=StudentLife; Integrated Security=true"))
+                using (SqlConnection conn = new SqlConnection("Persist Security Info=false; Server=localhost; Database=StudentLife; Integrated Security=true"))
                 {
                     conn.Open();
 
