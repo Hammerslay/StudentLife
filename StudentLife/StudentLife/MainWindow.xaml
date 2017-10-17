@@ -5,9 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentLife"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="StudentLife" Height="600" Width="1000">
     <Grid>
-        <Button x:Name="getOrg" Content="Get Org" HorizontalAlignment="Left" Margin="57,105,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBox x:Name="orgName" HorizontalAlignment="Left" Height="23" Margin="164,105,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="571" Margin="0,0,0,-0.333" VerticalAlignment="Top" Width="993" Grid.ColumnSpan="2">
+            <TabItem Header="Profile">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="label_LogInID" Content="Login ID:" HorizontalAlignment="Left" Margin="57,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="132"/>
+                    <Label x:Name="label_OrgID" Content="OrgID" HorizontalAlignment="Left" Margin="218,40,0,0" VerticalAlignment="Top" IsEnabled="False" FontSize="14"/>
+                    <Label x:Name="label_OrgName" Content="Organization name:" HorizontalAlignment="Left" Margin="57,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="132"/>
+                    <TextBox x:Name="textBox_OrgName" HorizontalAlignment="Left" Height="23" Margin="218,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                    <Label x:Name="label_OrgAddress" Content="Address:" HorizontalAlignment="Left" Margin="57,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="132"/>
+                    <TextBox x:Name="textBox_OrgAddress" HorizontalAlignment="Left" Height="23" Margin="218,124,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                    <Label x:Name="label_OrgEmail" Content="E-mail:" HorizontalAlignment="Left" Margin="57,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="132"/>
+                    <TextBox x:Name="textBox_OrgEmail" HorizontalAlignment="Left" Height="23" Margin="218,164,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                    <Label x:Name="label_OrgWebsite" Content="Website:" HorizontalAlignment="Left" Margin="57,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="132"/>
+                    <TextBox x:Name="textBox_OrgWebsite" HorizontalAlignment="Left" Height="23" Margin="218,204,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                    <Label x:Name="label_OrgPhoneNumber" Content="Phonenumber:" HorizontalAlignment="Left" Margin="57,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="132"/>
+                    <TextBox x:Name="textBox_OrgPhoneNumber" HorizontalAlignment="Left" Height="23" Margin="218,244,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                    <Label x:Name="label_OrgDescription" Content="Description:" HorizontalAlignment="Left" Margin="57,280,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="132"/>
+                    <TextBox x:Name="textBox_OrgDesciption" HorizontalAlignment="Left" Height="89" Margin="218,284,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Manage events">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="All events">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
