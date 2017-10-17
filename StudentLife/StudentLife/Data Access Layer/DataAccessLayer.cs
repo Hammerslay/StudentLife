@@ -60,7 +60,7 @@ namespace StudentLife.Data_Access_Layer
                     //}
                     //Console.ReadLine();
                     //conn.Close()
-
+                    //hej hej
                     SqlCommand cmd = new SqlCommand("usp_GetAllOrganizations", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     //cmd.Parameters.Add(new SqlParameter("@name", "Helsingkrona"));
