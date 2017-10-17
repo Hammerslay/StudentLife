@@ -12,8 +12,14 @@ namespace StudentLife.Model
         {
 
         }
-        public Organization(string name, string adress, string phoneNumber, string email, string website, string orgDescription)
+        public Organization(int id, string password)
         {
+            Id = id;
+            Password = password;
+        }
+        public Organization(int id, string name, string adress, string phoneNumber, string email, string website, string orgDescription)
+        {
+            Id = id;
             Name = name;
             Adress = adress;
             PhoneNumber = phoneNumber;
@@ -22,6 +28,8 @@ namespace StudentLife.Model
             OrgDescription = orgDescription;
         }
 
+        private int id;
+        private string password;
         private string name;
         private string adress;
         private string phoneNumber;
@@ -37,5 +45,7 @@ namespace StudentLife.Model
         public string Website { get => website; set => website = value; }
         public string OrgDescription { get => orgDescription; set => orgDescription = value; }
         public List<Hap> Haps { get => haps; set => haps = value; }
+        public int Id { get => id; set => id = value; }
+        public string Password { get => password; set => password = value; }
     }
 }

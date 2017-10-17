@@ -8,6 +8,22 @@ namespace StudentLife.Model
 {
     class Hap
     {
+        public Hap()
+        {
+
+        }
+        public Hap(int id, string name, DateTime hapDate, DateTime starTime, DateTime endTime, string hapDescription, int cost, Organization org)
+        {
+            Id = id;
+            Name = name;
+            HapDate = hapDate;
+            StartTime = startTime;
+            EndTime = endTime;
+            HapDescription = hapDescription;
+            Cost = cost;
+            OrgName = org;
+        }
+
         private int id;
         private string name;
         private DateTime hapDate; //Might only need two of these three DateTimes, one for start and one for end?
