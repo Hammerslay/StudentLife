@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit;
 
 namespace StudentLife
 {
@@ -25,10 +26,11 @@ namespace StudentLife
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_ProfileUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Model.Organization org = Data_Access_Layer.DataAccessLayer.GetOrganizationByName("Helsingkrona Nation");
-            orgName.Text = org.Name;
+
         }
+
+        
     }
 }
