@@ -4,7 +4,26 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 #Entity Framework
+App.config 
+App.xaml
+hap.cs
+organization.cs
+packages.condig
+StudentLifeModel.Context.cs
+StudentLifeModel.Context.tt
 
+StudentLifeModel.cs
+
+StudentLifeModel.Designer.cs
+
+StudentLifeModel.edmx
+
+StudentLifeModel.edmx.diagram
+
+StudentLifeModel.tt
+usp_FindAllEvents_results.cs
+usp_FindAllEventsByOrganization_Result.cs
+usp_GetOrganizationById_Result.cs
 
 # User-specific files
 *.suo
