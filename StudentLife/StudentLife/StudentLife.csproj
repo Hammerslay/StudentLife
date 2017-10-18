@@ -63,15 +63,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="hap.cs">
+      <DependentUpon>StudentLifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="organization.cs">
+      <DependentUpon>StudentLifeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="StudentLifeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentLifeModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="StudentLifeModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentLifeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="StudentLifeModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentLifeModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="usp_FindAllEvents_Result.cs">
+      <DependentUpon>StudentLifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_FindEventByOrganization_Result.cs">
+      <DependentUpon>StudentLifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetOrganizationById_Result.cs">
+      <DependentUpon>StudentLifeModel.tt</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +152,12 @@
     <Content Include="StudentLifeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>StudentLifeModel.Context.cs</LastGenOutput>
+      <DependentUpon>StudentLifeModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="StudentLifeModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StudentLifeModel.edmx</DependentUpon>
+      <LastGenOutput>StudentLifeModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

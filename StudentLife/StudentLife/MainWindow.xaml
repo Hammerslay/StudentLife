@@ -1,37 +1,125 @@
-﻿<Window x:Class="StudentLife.MainWindow"
+﻿<Window x:Name="StudentLife" x:Class="StudentLife.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
         xmlns:local="clr-namespace:StudentLife"
         mc:Ignorable="d"
-        Title="StudentLife" Height="600" Width="1000">
+        Title="StudentLife" Height="612" Width="1000" Foreground="#FF1B1B1C" FontSize="18" FontWeight="Bold">
+    <Window.Resources>
+        <ControlTemplate x:Key="RoundedTextBoxControlTemplate" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Border" BorderBrush="Black"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="6">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Border"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <CollectionViewSource x:Key="CollectionSource" Source="{Binding}"/>
+
+        <Style x:Key="RoundButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="Brown"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15" Background="{TemplateBinding Background}"
+                                BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="571" Margin="0,0,0,-0.333" VerticalAlignment="Top" Width="993" Grid.ColumnSpan="2">
-            <TabItem Header="Profile">
-                <Grid Background="#FFE5E5E5">
+        <TabControl x:Name="tabControl_StudentlifeMain" HorizontalAlignment="Left" Height="583" Margin="0,0,0,-0.333" VerticalAlignment="Top" Width="993">
+            <TabItem x:Name="Profile" Header="Profile" FontSize="14" FontWeight="Bold" Width="130" Height="30" IsSelected="True">
+                <Grid Background="#FFDEE8EC" UseLayoutRounding="False">
                     <Label x:Name="label_LogInID" Content="Login ID:" HorizontalAlignment="Left" Margin="57,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="140" FontWeight="Bold" HorizontalContentAlignment="Right"/>
                     <Label x:Name="label_OrgID" Content="OrgID" HorizontalAlignment="Left" Margin="218,40,0,0" VerticalAlignment="Top" IsEnabled="False" FontSize="14"/>
                     <Label x:Name="label_OrgName" Content="Organization name:" HorizontalAlignment="Left" Margin="57,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="140" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-                    <TextBox x:Name="textBox_OrgName" HorizontalAlignment="Left" Height="23" Margin="218,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                    <TextBox x:Name="textBox_OrgName" Template="{StaticResource RoundedTextBoxControlTemplate}" HorizontalAlignment="Left" Height="23" Margin="218,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" FontSize="14"/>
                     <Label x:Name="label_OrgAddress" Content="Address:" HorizontalAlignment="Left" Margin="57,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="140" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-                    <TextBox x:Name="textBox_OrgAddress" HorizontalAlignment="Left" Height="23" Margin="218,124,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                    <TextBox x:Name="textBox_OrgAddress" Template="{StaticResource RoundedTextBoxControlTemplate}" HorizontalAlignment="Left" Height="23" Margin="218,124,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" FontSize="14"/>
                     <Label x:Name="label_OrgEmail" Content="E-mail:" HorizontalAlignment="Left" Margin="57,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="140" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-                    <TextBox x:Name="textBox_OrgEmail" HorizontalAlignment="Left" Height="23" Margin="218,164,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                    <TextBox x:Name="textBox_OrgEmail" Template="{StaticResource RoundedTextBoxControlTemplate}" HorizontalAlignment="Left" Height="23" Margin="218,164,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" FontSize="14"/>
                     <Label x:Name="label_OrgWebsite" Content="Website:" HorizontalAlignment="Left" Margin="57,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="140" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-                    <TextBox x:Name="textBox_OrgWebsite" HorizontalAlignment="Left" Height="23" Margin="218,204,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                    <TextBox x:Name="textBox_OrgWebsite" Template="{StaticResource RoundedTextBoxControlTemplate}" HorizontalAlignment="Left" Height="23" Margin="218,204,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" FontSize="14"/>
                     <Label x:Name="label_OrgPhoneNumber" Content="Phonenumber:" HorizontalAlignment="Left" Margin="57,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="140" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-                    <TextBox x:Name="textBox_OrgPhoneNumber" HorizontalAlignment="Left" Height="23" Margin="218,244,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                    <TextBox x:Name="textBox_OrgPhoneNumber" Template="{StaticResource RoundedTextBoxControlTemplate}" HorizontalAlignment="Left" Height="23" Margin="218,244,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" FontSize="14"/>
                     <Label x:Name="label_OrgDescription" Content="Description:" HorizontalAlignment="Left" Margin="57,280,0,0" VerticalAlignment="Top" RenderTransformOrigin="-12.271,-4.46" FontSize="14" Width="140" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-                    <TextBox x:Name="textBox_OrgDesciption" HorizontalAlignment="Left" Height="89" Margin="218,284,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" FontSize="14"/>
+                    <TextBox x:Name="textBox_OrgDesciption" Template="{StaticResource RoundedTextBoxControlTemplate}" HorizontalAlignment="Left" Height="134" Margin="218,284,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" FontSize="14"/>
+
+                    <Button x:Name="button_ProfileUpdate" Style="{StaticResource RoundButtonTemplate}" Content="Update" HorizontalAlignment="Left" Margin="458,378,0,0" VerticalAlignment="Top" Width="100" Background="#FF141C35" Height="40" FontSize="16" FontWeight="Bold" RenderTransformOrigin="-0.7,1.752" Click="Button_ProfileUpdate_Click" UseLayoutRounding="True" BorderThickness="2"/>
+
+
+                    <GridSplitter x:Name="gridSplitter_Profile" HorizontalAlignment="Left" Height="983" Margin="488,-3,0,-437.333" VerticalAlignment="Top" Width="11" RenderTransformOrigin="0.5,0.5">
+                        <GridSplitter.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-90.0"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </GridSplitter.RenderTransform>
+                    </GridSplitter>
+                    <TextBlock x:Name="textBlock_ProfileResponse" HorizontalAlignment="Left" Margin="10,504,0,0" TextWrapping="Wrap" Text="Response" VerticalAlignment="Top" Height="29" Width="967"/>
                 </Grid>
 
             </TabItem>
-            <TabItem Header="Manage events">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem x:Name="ManageEvents" Header="Manage events" FontSize="14" FontWeight="Bold" Width="130" Height="30">
+                <Grid Background="#FFDEE8EC">
+                    <GridSplitter x:Name="gridSplitter_ManageEvent" HorizontalAlignment="Left" Height="983" Margin="488,-3,0,-437.333" VerticalAlignment="Top" Width="11" RenderTransformOrigin="0.5,0.5">
+                        <GridSplitter.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-90.0"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </GridSplitter.RenderTransform>
+                    </GridSplitter>
+                    <TextBlock x:Name="textBlock_ManageEventResponse" HorizontalAlignment="Left" Margin="10,504,0,0" TextWrapping="Wrap" Text="Response" VerticalAlignment="Top" Height="29" Width="967"/>
+                    <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Height="435" Margin="611,26,0,0" VerticalAlignment="Top" Width="349"/>
+                    <Label x:Name="label_EventID" Content="Event ID:" HorizontalAlignment="Left" Margin="57,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.379,0.651" FontWeight="Bold"/>
+                    <Label x:Name="label_EventID2" Content="Autom event ID" HorizontalAlignment="Left" Margin="218,40,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <Label x:Name="label_EventName" Content="Name:" HorizontalAlignment="Left" Margin="57,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.379,0.651" FontSize="14"/>
+                    <Label x:Name="label_EventStartTime" Content="Event Starting:" HorizontalAlignment="Left" Margin="57,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.379,0.651" FontSize="14"/>
+                    <Label x:Name="label_EventEndTime" Content="Event Ending:" HorizontalAlignment="Left" Margin="57,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.379,0.651" FontSize="14"/>
+                    <Label x:Name="label_EventCost" Content="Cost:" HorizontalAlignment="Left" Margin="57,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.379,0.651" FontSize="14"/>
+                    <Label x:Name="label_EventDescription" Content="Description:" HorizontalAlignment="Left" Margin="57,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.379,0.651" FontSize="14"/>
+                    <TextBox x:Name="textBox_EventName" HorizontalAlignment="Left" Height="23" Margin="218,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                   
+                    <TextBox x:Name="textBox_EventCost" HorizontalAlignment="Left" Height="23" Margin="218,204,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                    <TextBox x:Name="textBox_EventDescription" HorizontalAlignment="Left" Height="134" Margin="218,244,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+                </Grid>
+
             </TabItem>
-            <TabItem Header="All events">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem x:Name="AllEvents" Header="All events" Width="130" Height="30" FontSize="14" FontWeight="Bold">
+                <Grid Background="#FFDEE8EC">
+                    <GridSplitter x:Name="gridSplitter_AllEvents" HorizontalAlignment="Left" Height="983" Margin="488,-3,0,-437.333" VerticalAlignment="Top" Width="11" RenderTransformOrigin="0.5,0.5">
+                        <GridSplitter.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="90.0"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </GridSplitter.RenderTransform>
+                    </GridSplitter>
+                    <TextBlock x:Name="textBlock_AllEventsResponse" HorizontalAlignment="Left" Margin="10,504,0,0" TextWrapping="Wrap" Text="Response" VerticalAlignment="Top" Height="29" Width="967"/>
+                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="425" Margin="29,29,0,0" VerticalAlignment="Top" Width="921"/>
+                </Grid>
+
             </TabItem>
         </TabControl>
     </Grid>
