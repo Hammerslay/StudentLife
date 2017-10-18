@@ -11,38 +11,38 @@ namespace StudentLife.Data_Access_Layer
     static class DataAccessLayer
     {
 
-        public static Model.Organization GetOrganizationByName(string organizationName)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection("Persist Security Info=false; Server=localhost; Database=StudentLife; Integrated Security=true"))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("usp_GetOrganizationByName", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter("@name", organizationName));
-                    SqlDataReader reader = cmd.ExecuteReader();
+        //public static Model.Organization GetOrganizationByName(string organizationName)
+        //{
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection("Persist Security Info=false; Server=localhost; Database=StudentLife; Integrated Security=true"))
+        //        {
+        //            conn.Open();
+        //            SqlCommand cmd = new SqlCommand("usp_GetOrganizationByName", conn);
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.Parameters.Add(new SqlParameter("@name", organizationName));
+        //            SqlDataReader reader = cmd.ExecuteReader();
 
-                    Model.Organization org = new Model.Organization();
+        //            Model.Organization org = new Model.Organization();
 
-                    while (reader.Read())
-                    {
-                        org.Name = reader.GetString(0);
-                        org.Adress = reader.GetString(1);
-                        org.PhoneNumber = reader.GetString(2);
-                        org.Email = reader.GetString(3);
-                        org.Website = reader.GetString(4);
-                        org.OrgDescription = reader.GetString(5);
-                    }
+        //            while (reader.Read())
+        //            {
+        //                org.Name = reader.GetString(0);
+        //                org.Adress = reader.GetString(1);
+        //                org.PhoneNumber = reader.GetString(2);
+        //                org.Email = reader.GetString(3);
+        //                org.Website = reader.GetString(4);
+        //                org.OrgDescription = reader.GetString(5);
+        //            }
 
-                    return org;
-                }
-            }
-            catch(Exception exception)
-            {
-                return null;
-            }
-        }
+        //            return org;
+        //        }
+        //    }
+        //    catch(Exception exception)
+        //    {
+        //        return null;
+        //    }
+        //}
 
         static void Test()
         {
